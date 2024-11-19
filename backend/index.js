@@ -37,9 +37,9 @@ app.get('/api/data', async (req, res) => {
     const type = req.query.type;
     let query = {};
 
-    if (type === 'temperature') {
+    if (type === 'temperaturas') {
       query = { mediaTemp: { $exists: true } };
-    } else if (type === 'humidity') {
+    } else if (type === 'umidades') {
       query = { mediaUmid: { $exists: true } };
     }
 
