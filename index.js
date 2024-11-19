@@ -3,7 +3,7 @@ const express = require('express');
 const mongoose = require('mongoose');
 const bodyParser = require('body-parser');
 const cors = require('cors');
-
+const Medidas = require('./models/Medidas');
 const authRoutes = require('./routes/authRoutes'); // Rota de autenticação
 const app = express();
 
@@ -22,9 +22,11 @@ mongoose.connect(process.env.MONGODB_URI, {
 const db = mongoose.connection;
 let collection;
 
-// Defina a coleção `medidas` após a conexão ser estabelecida
+// Monitoramento de eventos da conexão
+db.on('error', (error) => console.error('Erro na conexão com o MongoDB:', error)); // Log de erros na conexão
 db.once('open', () => {
-  collection = db.collection("medidas");
+  console.log('Conexão com o MongoDB estabelecida com sucesso');
+  collection = db.collection('medidas'); // Inicializa a coleção
   console.log("Coleção 'medidas' inicializada");
 });
 
@@ -43,16 +45,13 @@ app.get('/api/data', async (req, res) => {
       query = { mediaUmid: { $exists: true } };
     }
 
-    if (!collection) {
-      return res.status(500).json({ message: "erro de tabela" });
-    }
-
-    const data = await collection.find(query).toArray();
+    const data = await Medidas.find(query);
     res.json(data);
   } catch (error) {
     res.status(500).json({ message: "Erro ao buscar dados: " + error.message });
   }
 });
+
 
 // Porta do servidor
 const PORT = process.env.PORT || 5000;
