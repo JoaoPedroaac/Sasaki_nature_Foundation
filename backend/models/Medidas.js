@@ -1,24 +1,30 @@
 const mongoose = require('mongoose');
 
-const MedidaSchema = new mongoose.Schema({
-  id: { type: Number, required: true },
+const medidasSchema = new mongoose.Schema({
+  id: Number,
   mediaTemp: Number,
   medianaTemp: Number,
   modaTemp: Number,
   desvioPTemp: Number,
-  coeficienteVTemp: Number,
+  coefDesvioPTemp: Number,
   assimetriaTemp: Number,
   curtoseTemp: Number,
+  prevFutTemp: Number,
+  coefRegrTemp: Number,
+  intercTemp: Number,
   mediaUmid: Number,
   medianaUmid: Number,
   modaUmid: Number,
   desvioPUmid: Number,
-  coeficienteVUmid: Number,
+  coefDEsvioPUmid: Number,
   assimetriaUmid: Number,
   curtoseUmid: Number,
+  prevFutUmid: Number,
+  coefRegrUmid: Number,
+  intercUmid: Number,
   temperaturas: [Number],
   umidades: [Number],
-  timestamp: { type: Date, default: Date.now },
+  timestamp: Date,
 });
 
-module.exports = mongoose.model('Medida', MedidaSchema);
+module.exports = mongoose.model('Medidas', medidasSchema);
