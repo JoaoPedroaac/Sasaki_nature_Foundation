@@ -37,14 +37,14 @@ app.get('/api/data', async (req, res) => {
     const type = req.query.type;
     let query = {};
 
-    if (type === 'temperature') {
+    if (type === 'temperaturas') {
       query = { mediaTemp: { $exists: true } };
-    } else if (type === 'humidity') {
+    } else if (type === 'umidades') {
       query = { mediaUmid: { $exists: true } };
     }
 
     if (!collection) {
-      return res.status(500).json({ message: "Coleção não inicializada" });
+      return res.status(500).json({ message: "erro de tabela" });
     }
 
     const data = await collection.find(query).toArray();
