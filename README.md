@@ -15,7 +15,7 @@ https://sasaki-nature-foundation.vercel.app/api/auth/register
 
 Registro no Banco
 
-## POST
+## GET
 https://sasaki-nature-foundation.vercel.app/api/data
 
 Verificar dados do banco.
