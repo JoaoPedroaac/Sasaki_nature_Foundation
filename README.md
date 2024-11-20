@@ -1,6 +1,25 @@
 # API de Monitoramento de Medidas 🌡️💧
 
-Esta é uma API desenvolvida com **Node.js** e **Express**, projetada para monitorar dados como temperaturas e umidades. Utiliza **MongoDB** como banco de dados e inclui autenticação de usuários. O deploy foi realizado na [Vercel](https://vercel.com/).
+Esta é uma API desenvolvida com **Node.js** e **Express**, projetada para monitorar dados como temperaturas e umidades. Utiliza **MongoDB** como banco de dados e inclui autenticação de usuários. O deploy foi realizado via Render.
+
+## API
+https://sasaki-nature-foundation.vercel.app/ 
+
+## POST
+https://sasaki-nature-foundation.vercel.app/api/auth/login
+
+Fazer login no Banco
+
+## POST
+https://sasaki-nature-foundation.vercel.app/api/auth/register
+
+Registro no Banco
+
+## POST
+https://sasaki-nature-foundation.vercel.app/api/data
+
+Verificar dados do banco.
+
 
 ---
 
