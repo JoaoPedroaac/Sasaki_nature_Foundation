@@ -4,12 +4,11 @@ const User = require('../models/User');
 const Medida = require('../models/Medida'); // Importa o modelo Medida
 const jwt = require('jsonwebtoken');
 
-// Função para gerar o token JWT
 function generateToken(user) {
   return jwt.sign({ id: user._id }, process.env.JWT_SECRET, { expiresIn: '1h' });
 }
 
-// Rota de registro
+
 router.post('/register', async (req, res) => {
   try {
     const { name, email, password } = req.body;
@@ -29,7 +28,6 @@ router.post('/register', async (req, res) => {
   }
 });
 
-// Rota de login
 router.post('/login', async (req, res) => {
   try {
     const { email, password } = req.body;
@@ -46,7 +44,6 @@ router.post('/login', async (req, res) => {
   }
 });
 
-// Rota para verificar o token
 router.get('/verify-token', (req, res) => {
   const token = req.header('Authorization').replace('Bearer ', '');
 
@@ -62,7 +59,7 @@ router.get('/verify-token', (req, res) => {
   }
 });
 
-// Rota para comparar as medidas (id: 1 e id: 2)
+
 router.get('/compare', async (req, res) => {
   try {
     const medida1 = await Medida.findOne({ id: 1 });
@@ -81,9 +78,6 @@ router.get('/compare', async (req, res) => {
         medida1: medida1.desvioPTemp,
         medida2: medida2.desvioPTemp,
       },
-      // Adicione aqui outros campos de interesse, como coeficienteVTemp, mediaUmid, etc.
-      
-      // Inclua os arrays completos de temperaturas e umidades
       temperaturas: {
         medida1: medida1.temperaturas,
         medida2: medida2.temperaturas,

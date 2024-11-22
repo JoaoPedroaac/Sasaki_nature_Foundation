@@ -4,13 +4,13 @@ const mongoose = require('mongoose');
 const bodyParser = require('body-parser');
 const cors = require('cors');
 const Medidas = require('./models/Medidas');
-const authRoutes = require('./routes/authRoutes'); // Rota de autenticação
+const authRoutes = require('./routes/authRoutes'); 
 const app = express();
 
-app.use(cors()); // Permite requisições de outros domínios
+app.use(cors()); 
 app.use(bodyParser.json());
 
-// Conexão com o MongoDB
+
 mongoose.set('strictQuery', false);
 mongoose.connect(process.env.MONGODB_URI, {
   useNewUrlParser: true,
@@ -22,7 +22,7 @@ mongoose.connect(process.env.MONGODB_URI, {
 const db = mongoose.connection;
 let collection;
 
-// Monitoramento de eventos da conexão
+
 db.on('error', (error) => console.error('Erro na conexão com o MongoDB:', error)); // Log de erros na conexão
 db.once('open', () => {
   console.log('Conexão com o MongoDB estabelecida com sucesso');
@@ -30,10 +30,10 @@ db.once('open', () => {
   console.log("Coleção 'medidas' inicializada");
 });
 
-// Rotas de autenticação
+
 app.use('/api/auth', authRoutes);
 
-// Rota para buscar dados de temperatura ou umidade
+
 app.get('/api/data', async (req, res) => {
   try {
     const type = req.query.type;
@@ -53,6 +53,6 @@ app.get('/api/data', async (req, res) => {
 });
 
 
-// Porta do servidor
+
 const PORT = process.env.PORT || 5000;
 app.listen(PORT, () => console.log(`Servidor rodando na porta ${PORT}`));
