@@ -3,20 +3,20 @@
 Esta é uma API desenvolvida com **Node.js** e **Express**, projetada para monitorar dados como temperaturas e umidades. Utiliza **MongoDB** como banco de dados e inclui autenticação de usuários. O deploy foi realizado via Render.
 
 ## API
-https://sasaki-nature-foundation.vercel.app/ 
+https://sasaki-nature-foundation.onrender.com/
 
 ## POST
-https://sasaki-nature-foundation.vercel.app/api/auth/login
+https://sasaki-nature-foundation.onrender.com/api/auth/login
 
 Fazer login no Banco
 
 ## POST
-https://sasaki-nature-foundation.vercel.app/api/auth/register
+https://sasaki-nature-foundation.onrender.com/api/auth/register
 
 Registro no Banco
 
 ## GET
-https://sasaki-nature-foundation.vercel.app/api/data
+https://sasaki-nature-foundation.onrender.com/api/data
 
 Verificar dados do banco.
 
@@ -29,7 +29,7 @@ Verificar dados do banco.
 - **MongoDB** como banco de dados NoSQL.
 - **dotenv** para gerenciamento de variáveis de ambiente.
 - **body-parser** e **cors** para manipulação de requisições e habilitação de CORS.
-- **Vercel** para deploy do projeto.
+- **Render** para deploy do projeto.
 
 ---
 
